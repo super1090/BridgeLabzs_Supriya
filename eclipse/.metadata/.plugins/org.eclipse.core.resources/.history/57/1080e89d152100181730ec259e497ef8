@@ -1,0 +1,13 @@
+package com.bridgelabzs.algorithm;
+
+import java.util.Scanner;
+
+public class BinarySearchString 
+{
+	public static void main(String[] args) 
+	{
+		Scanner scanner =new Scanner(System.in);
+	}
+	
+	
+}

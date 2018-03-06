@@ -1,0 +1,17 @@
+package com.bridgelabzs.algorithm;
+
+import java.util.Scanner;
+
+public class BinarySearchString 
+{
+	public static void main(String[] args) 
+	{
+		Scanner scanner =new Scanner(System.in);
+		System.out.println(">> Enter the size of an Array : ");
+		String size=scanner.next();
+		System.out.println(">> Enter the words from an Array : ");
+	
+	}
+	
+	
+}

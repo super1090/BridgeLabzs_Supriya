@@ -1,0 +1,15 @@
+package com.bridgelabzs.functionalprograms;
+
+import java.util.Scanner;
+
+public class MonthlyPayment 
+{
+	public static void main(String[] args)
+	{
+		Scanner scanner =new Scanner (System.in);
+		System.out.println(">> Enter Values to calculate MAonthly Payment ");
+	}
+	
+	
+	
+}

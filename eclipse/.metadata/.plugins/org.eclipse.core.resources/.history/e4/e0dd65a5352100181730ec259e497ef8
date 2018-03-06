@@ -1,0 +1,9 @@
+package com.bridgelabzs.functionalprograms;
+
+public class DayOfWeek2 
+{
+	public static void main(String[] args) 
+	{
+		
+	}
+}

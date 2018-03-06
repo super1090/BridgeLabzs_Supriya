@@ -1,0 +1,14 @@
+package com.bridgelabzs.algorithm;
+
+public class temperaturConversion 
+{
+	static
+	{
+		// It is used to tell what is that programe
+		System.out.println(">> $$$$$$$ temperaturConversion Programes $$$$$$<<");
+	}
+	public static void main(String[] args) 
+	{
+		
+	}
+}
