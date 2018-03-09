@@ -10,7 +10,7 @@ package com.bridgelabzs.Utility;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
+import java.util.Scanner;import javax.swing.text.AbstractDocument.LeafElement;
 
 /**
  * @author guest-3qnmfz
@@ -39,6 +39,12 @@ import java.util.Scanner;
 public class Utility
 {
 static Scanner scanner=new Scanner(System.in);
+public static int RANGE;
+public static int COUNT;
+public static int UPPER;
+public static int LOWER;
+public static int MIDDELE;
+public static String INPUT;
 	
 // It is used to check whether enterd number is Leap Year or Not
 	public static void leapyear(int year)
@@ -765,5 +771,192 @@ public static void intArray()
 			
 		}
 
+		/**
+		 * @param words it accept the word String array and Swap the Array elements 
+		 */
+		public static void sort(String words[])
+		{
+			String ltemp;
+			int llength=words.length;
+			for(int i=0;i<llength;i++)
+			{
+				for(int j=i;j<llength;j++)
+				{
+					if(words[i].compareToIgnoreCase(words[j])>0)
+					{
+						ltemp=words[i];
+						words[i]=words[j];
+						words[j]=ltemp;
+					}
+				}
+			}
+		}
+		/**
+		 * @param word It accept User enterd word that is search from an String Array
+		 * @param words It is a String Array 
+		 * @param a its initial Value of an Array
+		 * @param b its Length of an Aarray
+		 */
+		public static int bsearch(String word,String words[],int a,int b)
+		{
+			if(b<=a)
+			{
+				return -1;
+			}
+			if(b - a == 1)
+			{
+		        return words[a].equals(word) ? a:-1;
+			}
+			int pivot=(a+b)/2;
+			if(word.compareTo(words[pivot])<0)
+			{
+				return bsearch(word, words, 0, pivot);
+			}
+			if(word.compareTo(words[pivot])<0)
+			{
+				return bsearch(word,words,0,b);
+			}
+			return pivot;
+			
+		}
 
-}
+		/**
+		 * @param num it is user entered number
+		 * @param arr it is accpet int Array
+		 * @param a arr[0] i.e. First position 
+		 * @param b arr.length i.e. length of array
+		 * @return return pivot
+		 */
+		public static int bsearchInteger(int num,int arr[],int a,int b)
+		{
+			if(b<=a)
+			{
+				return -1;
+			}
+			if(b-a == 1)
+			{
+				return arr[a]==arr[num] ? a:-1;
+			}
+			int pivot=(a+b)/2;
+			if(num==(arr[pivot]))
+			{
+				return bsearchInteger(num, arr, a,pivot);
+			}
+			if(num==arr[pivot])
+			{
+				return bsearchInteger(num, arr, a, b);
+			}
+			return pivot;
+			
+		}
+		public static void imaginenumber( int num) 
+		{
+			RANGE = (int) Math.pow(2, num-1);
+			System.out.println("Take number between '0' to "+RANGE);
+			COUNT=0;
+			INPUT= null;
+			LOWER=0;
+			UPPER=RANGE;
+			int MIDDLE = (LOWER+UPPER/2);
+			
+			System.out.println("Is your number:"+MIDDLE);
+			
+			System.out.println("Enter your answer in 'yes' or 'high' or 'low'");
+			INPUT=scanner.next();
+	       	do
+	        {
+	            if (INPUT.equals("high"))
+	            {
+					LOWER= MIDDLE;
+					COUNT++;
+	            }
+				else if (INPUT.equals("yes"))
+	            {
+					System.out.println("The number you thought was: "+MIDDLE);
+					int no=COUNT+1;
+					System.out.println("It takes "+no+" times to find your exact number");
+					break;
+	            }
+				else if(INPUT.equals("low"))
+	            {
+					UPPER=MIDDLE;
+					COUNT++;
+				}
+	            if(COUNT<num)
+	            {
+					MIDDLE=(LOWER+ UPPER+1)/2;
+					System.out.println("Is your number "+MIDDLE+":");
+					INPUT=scanner.next();
+				}
+			}
+			while(LOWER<=UPPER);
+				if (COUNT>num)
+				{
+					System.out.println("Number not found");
+				}
+				else
+				{
+					System.exit(0);
+				}
+		}
+		
+		/**
+		 * @param num it accept decimal number and convert into binary number
+		 */
+		public static String toBinary(int num)
+		{
+			/*int binary[]=new int[100];
+			int i=0;
+			while(num>0)
+			{
+					binary[i]=num%2;	// Logic for conversion of decimal to binary number
+					i++;
+					num=num/2;
+			}
+			// It is used to print a Binary converion of decimal numbwere, which is prsent in the Binary[i]
+			for(int j=i;j>=0;j--)
+			{
+				System.out.print("The binary number is : "+binary[j]);
+			}
+			return binary;*/
+			String bin[]= {"0","1"};
+			String binary=" ";
+			int pading=0;
+			while((num>0)||(pading%8!=0))
+			{
+				int rem=num%2;
+				binary=bin[rem]+binary;
+				num=num/2;
+				pading++;
+				if(pading%4==0 && num !=0)
+				{
+					binary=" "+binary;
+				}
+			}
+			return binary;
+			
+		}
+	  public static String swapNibbles(String binary)
+	  {
+		  binary=binary.replaceAll("" , "");
+		  String Lower_NIBBELE=binary.substring(0, 4);
+		  String UPPER_NIBBELE=binary.substring(4, 8);
+		  String SwapingBinary=UPPER_NIBBELE+Lower_NIBBELE;
+		  return SwapingBinary;
+	  }
+	 public static int binaryToDecimal(String nibble)
+	 {
+		 int decimal=0;
+		 int power=0;
+		 nibble=nibble.replaceAll(" "," ");
+		 int index=nibble.length()-1;
+		 while(index>=0)
+		 {
+			 decimal=(int) (Integer.parseInt(nibble.charAt(index)+" ")*Math.pow(2, power));
+			 power++;
+			 index--;
+		 }
+		 return decimal;
+	 }
+	 
+	}
