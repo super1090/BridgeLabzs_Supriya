@@ -1,14 +1,17 @@
 package com.bridgelabzs.FunctionalPrograms;
-/**
+/***************************************************************************************************
 *  Purpose: It is to play Gamlare game.
+
 *
 *  @author  Supriya kumawat
 *  @version 1.0
 *  @since   03-03-2018
 *
-**/
+****************************************************************************************************/
 
 import java.util.Scanner;
+
+import com.bridgelabzs.Utility.Utility;
 
 public class GamblerGame 
 {
@@ -19,17 +22,17 @@ public class GamblerGame
 		int lnumTime;
 		int lwin=0;
 		int lbets=0;
-		Scanner scanner=new Scanner(System.in);
+		Utility utility=new Utility();
 		
 		System.out.print(">> Enter How many stake you have : ");
-		lstake=scanner.nextInt();
+		lstake=Utility.inputInteger();
 		
 		System.out.println("> Enter a Goal : ");
-		int lgoal=scanner.nextInt();
+		int lgoal=Utility.inputInteger();
 		System.out.println();
 		
 		System.out.print(">> Enter How Many Time you Have to Play : ");
-		lnumTime=scanner.nextInt();
+		lnumTime=Utility.inputInteger();
 		
 		for(int li=0;li<lnumTime;li++)
 		{

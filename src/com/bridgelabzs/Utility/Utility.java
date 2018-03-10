@@ -1,51 +1,97 @@
 package com.bridgelabzs.Utility;
-/**
-*  Purpose:Utility
+/*************************************************************************************************************
+*  Purpose:Utility It is used to write all Logic here
+
 *
 *  @author  Supriya kumawat
 *  @version 1.0
 *  @since   01-03-2018
 *
-**/
+*************************************************************************************************************/
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;import javax.swing.text.AbstractDocument.LeafElement;
+import java.util.Scanner;
+import java.util.function.IntBinaryOperator;
+import javax.swing.text.AbstractDocument.LeafElement;
 
-/**
- * @author guest-3qnmfz
- *
- */
-/**
- * @author guest-3qnmfz
- *
- */
-/**
- * @author guest-3qnmfz
- *
- */
-/**
- * @author guest-3qnmfz
- *
- */
-/**
- * @author guest-3qnmfz
- *
- */
-/**
- * @author guest-3qnmfz
- *
- */
 public class Utility
 {
-static Scanner scanner=new Scanner(System.in);
+
+static Scanner scanner;
 public static int RANGE;
 public static int COUNT;
 public static int UPPER;
 public static int LOWER;
 public static int MIDDELE;
 public static String INPUT;
-	
+public Utility()
+{
+	scanner = new Scanner(System.in);
+}
+	/**
+	 * @return String
+	 */
+	public static String inputString()
+	{
+		try
+		{
+			return scanner.nextLine();
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}	
+		return "";
+	}
+	/**
+	 * @return Integer
+	 */
+	public static int inputInteger()
+	{	
+		try
+		{
+			return scanner.nextInt();
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}
+		return 0;
+	}
+	/**
+	 * @return Double
+	 */
+	public static double inputDouble()
+	{
+		try
+		{
+			return scanner.nextDouble();
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}
+		return 0.0;
+	}
+	/**
+	 * @return Long
+	 */
+	public static long inputLong()
+	{
+		try
+		{
+			return scanner.nextLong();
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}
+		return 0;
+	}
+
+
 // It is used to check whether enterd number is Leap Year or Not
 	public static void leapyear(int year)
 	{
@@ -206,8 +252,6 @@ public static void intArray()
 			System.out.println();
 		}	
 	}
-
-	
 	/**
 	 * It is used to print a booleanArray 
 	 */
@@ -241,14 +285,17 @@ public static void intArray()
 		}	
 	}
 	
-	public static long START_TIMER=0;	
+	public static long START_TIMER=0;
 	public static long STOP_TIMER=0;
 	
 	// Start method used to start the timer and in START_TIMER variable it will be stored CurrentTime in Mills
 	public static void start()
 	{
 		START_TIMER=System.currentTimeMillis();
-		System.out.println("Current Time of Start watch : "+START_TIMER);
+		System.out.println("Current Time of Start wa\n" + 
+				"		long lElapesd = STOP_TIMER - START_TIMER;\n" + 
+				"		return lElapesd;\n" + 
+				"	tch : "+START_TIMER);
 	}
 	
 	// stop method used to stop the timer and in STOP_TIMER variable it will be stored CurrentTime in Mills
@@ -280,29 +327,32 @@ public static void intArray()
 	// in arr[] is uesd to stored the random element that are genearated by system
 	public static void couponNo(int arr[],int coupon)
 	{
-		Random lr=new Random();		
-	
-		int lrandom = lr.nextInt(coupon);	
-		
-		System.out.println(" >> Given Random Values are : ");
-		
-		// taverse in array by using for loop
-		for(int i=0;i<arr.length;i++)
+		int array[]=new int[coupon];
+
+		Random rand = new Random();
+		//System.out.println("Random Elements are:");
+		for(int i=0;i<array.length;i++)
 		{
-			arr[i]=lrandom;
-				for(int j=0;j<i;j++)
+			// Generate Random Elements 
+			int r=rand.nextInt(coupon);
+			array[i]=r;
+
+			for(int j=0;j<i;j++)
+			{
+				if(array[i]==array[j])
 				{
-					if(arr[i]==arr[j])
-					{
-						arr[i]=0;
-						break;
-					}
-					else
-					{
-						System.out.println(">> Uniique Elements Are  : "+arr[coupon]);
-					}
+					i--;
+					break;
 				}
+			}
 		}
+		System.out.println("unique Elements Are:");
+		//Print Unique Elements 
+		for(int i=0;i<coupon;i++)
+		{
+			System.out.println(array[i]);
+		}
+		
 	}
 	
 	// Void quadratcEqu method need Three Varibales To CAlculate the Quadratic equation
@@ -422,13 +472,15 @@ public static void intArray()
 	
 	// This method is used to check whether it is Annagrame or not 
 	// That's  why they want to String Str1, str2
-	 public static void areAnnagram(String str1,String str2)
+	 public static boolean areAnnagram(String str1,String str2)
 	 {
 		 int ln1=str1.length();
 			int ln2=str2.length();
+			boolean flag=false;
 			if(ln1!=ln2)
 			{
-				System.out.println(">> Entered Two String are not Annagrme ");
+				//System.out.println(">> Entered Two String are not Annagrme ");
+				return false;
 			}
 			else
 			{
@@ -436,64 +488,52 @@ public static void intArray()
 				char s2[]=str2.toCharArray();
 				Arrays.sort(s1);
 				Arrays.sort(s2);
-				Arrays.equals(s1, s2);
-				System.out.println(">> Given String is An Annagram ");
+				String sa1=String.valueOf(s1);
+				
+				String sa2=String.valueOf(s2);
+				//Arrays.equals(s1, s2);
+				 return sa1.equals(sa2);
+			//	System.out.println(">> Given String is An Annagram ");
 			}
 		
 	 }
 	  
 	 // This is used to give you First 1000 prime number
 	 
-	 public static void Prime1000()
+	 /**
+	 * @return the prime numbers between 2 to 1000
+	 */
+	public static ArrayList<String> Prime1000()
 	 {
-		 int lnum=0,li;
+		 int li,j;
+		 ArrayList <String> al=new ArrayList <String>();
+
 				for(li=0;li<=1000;li++)
 				{
-					for(int j=2;j<li;j++)
+					for(j=2;j<li;j++)
 					{
-						if(li%j==0)
+						if(li % j == 0)
 						{
-							lnum=0;
 							break;
 						}
-						else
-						{
-							lnum=1;
-//							int count=0			}
 					}
-					if(lnum==1)
+					if(j==li)
 					{
-						System.out.println(li);
+						al.add(Integer.toString(li));
+					
 					}
 				}
+				System.out.println(al);
+				return al;
+
 			}
-	 }
 	 
-	// This is also used to give you First 1000 prime number
-
-	 public static void primeAnother()
-	 {
-		int lnum=0;
-		int li,lj;
-		for(li=0;li<=1000;li++)
-		{
-			for(lj=2;lj<li;lj++)
-			{
-				if(li % lj==0)
-				{
-					break;
-				}
-				if(li==lj)
-				{
-					System.out.println(li);
-				}
-			}
-		}
-	 }
-
 	 // It is Arithmatic programe Logic To find BubbleSort Integer
 	 
-	 public static void bubbleSortinteger1()
+	 /**
+	 *  It is used to sort Interger Array by using BubbleSort
+	 */
+	public static void bubbleSortinteger1()
 		{
 			int li,lj,ltemp;
 			System.out.println(">> Enter the size of an Array : ");
@@ -723,6 +763,7 @@ public static void intArray()
 		 * @return eg : {"a","b","d","h","e"}
 		 * o/p : {"a","b,"d","e","h"}
 		 */  
+		
 		public static String[] insertOnString(String s[])
 		{
 	
@@ -900,25 +941,11 @@ public static void intArray()
 				}
 		}
 		
-		/**
+			/**
 		 * @param num it accept decimal number and convert into binary number
 		 */
 		public static String toBinary(int num)
 		{
-			/*int binary[]=new int[100];
-			int i=0;
-			while(num>0)
-			{
-					binary[i]=num%2;	// Logic for conversion of decimal to binary number
-					i++;
-					num=num/2;
-			}
-			// It is used to print a Binary converion of decimal numbwere, which is prsent in the Binary[i]
-			for(int j=i;j>=0;j--)
-			{
-				System.out.print("The binary number is : "+binary[j]);
-			}
-			return binary;*/
 			String bin[]= {"0","1"};
 			String binary=" ";
 			int pading=0;
@@ -944,19 +971,130 @@ public static void intArray()
 		  String SwapingBinary=UPPER_NIBBELE+Lower_NIBBELE;
 		  return SwapingBinary;
 	  }
-	 public static int binaryToDecimal(String nibble)
+	 public static double binaryToDecimal(String nibble)
 	 {
-		 int decimal=0;
-		 int power=0;
-		 nibble=nibble.replaceAll(" "," ");
-		 int index=nibble.length()-1;
-		 while(index>=0)
+		// System.out.println("Decimal Number is: "+Integer.parseInt(nibble,2));
+		 long decimal=0;
+		 int padding=0;
+		 try
 		 {
-			 decimal=(int) (Integer.parseInt(nibble.charAt(index)+" ")*Math.pow(2, power));
-			 power++;
-			 index--;
+			 double number=Integer.parseInt(nibble);
+			 while(true)
+			 {
+				 if(number==0)
+				 {
+					 break;
+				 }
+				 else
+				 {
+					double temp=number%10;
+					decimal=(long) (decimal+temp*Math.pow(2,padding));
+					number=number/10;
+					padding++;
+				 }
+			 }
 		 }
-		 return decimal;
+		 catch (Exception e) 
+		 {
+			e.printStackTrace(); 	
+		 }
+		return decimal;
 	 }
 	 
-	}
+	 	public static void mergeSort(int[] array, int low, int high)
+	 	{
+			if(low < high)
+			{
+				int middle = (low + high) / 2;
+				mergeSort(array, low, middle);
+				mergeSort(array, middle+1, high);
+				merge(array, low, middle, high);
+			}	
+		}
+
+		public static void merge(int[] array, int low, int middle, int high)
+		{
+			int[] helper = new int[array.length];
+			for (int i = low; i <= high; i++) 
+			{
+				helper[i] = array[i];
+			}
+			
+			int helperLeft = low;
+			int helperRight = middle+1;
+			int current = low;
+			
+			while (helperLeft <= middle && helperRight <=high) 
+			{
+				if(helper[helperLeft] <= helper[helperRight])
+				{
+					array[current] = helper[helperLeft];
+					helperLeft++;
+				}
+				else
+				{
+					array[current] = helper[helperRight];
+					helperRight++;
+				}
+				current ++;		
+			}
+			
+				int remaining = middle - helperLeft;
+				for (int i = 0; i <= remaining; i++) 
+				{
+					array[current+i] = helper[helperLeft+ i];
+				}
+				System.out.print(">> After Sorting of an Array is : "+array[current]);
+			
+		}
+		public static void extendPrime(String[] strArray)
+		{
+			System.out.println("prime number That Are Anagarm : ");
+	        for(int i=0;i<strArray.length;i++)
+	        {
+	      	  for(int j=i+1;j<strArray.length;j++)
+	      	  {
+	      		  boolean annagram=Utility.areAnnagram(strArray[i], strArray[j]);
+	      		  if(annagram)
+	      		  {
+	      			 System.out.println(strArray[i]+ " -> " +strArray[j]);
+	      		  }
+	      		  
+	      	  }
+	        }
+	        System.out.println("Prime Numbers That Are pallindrom : ");
+	        for(int i=0;i<strArray.length;i++)
+	        {
+	      	  String temp= new StringBuffer(strArray[i]).reverse().toString();
+	      	  if(temp.equals(strArray[i]))
+	      	  {
+	      		  System.out.println(strArray[i]+ " ");
+	      	  }
+	        }
+			
+		}
+		 public static String swap(String a, int i, int j)
+		 {
+		        char temp;
+		        char[] charArray = a.toCharArray();
+		        temp = charArray[i] ;
+		        charArray[i] = charArray[j];
+		        charArray[j] = temp;
+		        return String.valueOf(charArray);
+	    }
+		 
+	    public static void permutation(String str, int l, int r)
+	    {
+	        if (l == r)
+	            System.out.println(str);
+	        else
+	        {
+	            for (int i = l; i <= r; i++)
+	            {
+	                str = swap(str,l,i);
+	                permutation(str, l+1, r);
+	                str = swap(str,l,i);
+	            }
+	        }
+	    }
+}

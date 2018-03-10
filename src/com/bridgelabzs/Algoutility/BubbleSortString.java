@@ -1,5 +1,5 @@
-package com.bridgelabzs.Algoutility;
-/**
+
+/********************************************************************************************
 *  Purpose: It is used to sort BubleSortString.
 *
 *  @author  Supriya kumawat
@@ -7,7 +7,7 @@ package com.bridgelabzs.Algoutility;
 *  @since   03-03-2018
 *
 **/
-
+package com.bridgelabzs.Algoutility;
 public class BubbleSortString
 {
 	static

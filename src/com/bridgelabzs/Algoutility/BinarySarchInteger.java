@@ -1,3 +1,11 @@
+/*********************************************************************************
+*  Purpose: It is used to search a binary number of Integer
+*
+*  @author  Supriya kumawat
+*  @version 1.0
+*  @since   09-03-2018
+*
+*******************************************************************************/
 package com.bridgelabzs.Algoutility;
 
 import java.util.Scanner;

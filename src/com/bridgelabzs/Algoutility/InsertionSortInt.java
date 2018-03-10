@@ -1,14 +1,14 @@
-package com.bridgelabzs.Algoutility;
 
-/**
+/****************************************************************************************
 *  Purpose: Insertion sort it is used to sort a Int Array.
+
 *
 *  @author  Supriya kumawat
 *  @version 1.0
 *  @since   03-03-2018
 *
-**/
-
+****************************************************************************************/
+package com.bridgelabzs.Algoutility;
 import java.util.Scanner;
 import com.bridgelabzs.Utility.Utility;
 
@@ -16,9 +16,9 @@ public class InsertionSortInt
 {
 	public static void main(String[] args) 
 	{
-		Scanner sc=new Scanner(System.in);
+		Utility utility=new Utility();
 		System.out.print(">> Enter the Size of an Array : ");
-		int size=sc.nextInt();
+		int size=Utility.inputInteger();
 		System.out.println();
 		int arr[]=new int[size];
 		
@@ -26,7 +26,7 @@ public class InsertionSortInt
 		System.out.println(">> Enter the values for an Array : ");
 		for(int i=0;i<arr.length;i++)
 		{
-			arr[i]=sc.nextInt();
+			arr[i]=Utility.inputInteger();
 		}
 		
 		System.out.print(">> Before Sorting : { ");

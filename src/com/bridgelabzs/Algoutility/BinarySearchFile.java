@@ -1,11 +1,3 @@
-package com.bridgelabzs.Algoutility;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-
-import com.bridgelabzs.Utility.Utility;
 /*********************************************************************************
 *  Purpose: It is used to search a String Array , And Search elementby in Array with help of InputStreamReder.
 
@@ -15,6 +7,15 @@ import com.bridgelabzs.Utility.Utility;
 *  @since   09-03-2018
 *
 *******************************************************************************/
+package com.bridgelabzs.Algoutility;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+import com.bridgelabzs.Utility.Utility;
+
 public class BinarySearchFile 
 {
 	public static void main(String[] args) throws IOException

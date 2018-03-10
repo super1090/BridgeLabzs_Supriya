@@ -1,27 +1,27 @@
+
 /*********************************************************************************
-*  Purpose: It is used to Convert a decimal Number into a binary number
+*  Purpose: It is used check the permutaion of the given String
+
 
 *
 *  @author  Supriya kumawat
 *  @version 1.0
-*  @since   09-03-2018
+*  @since   10-03-2018
 *
 *******************************************************************************/
-package com.bridgelabzs.Algoutility;
-
+package com.bridgelabzs.FunctionalPrograms;
 import java.util.Scanner;
 
 import com.bridgelabzs.Utility.Utility;
 
-public class Binary 
+public class Permutation 
 {
 	public static void main(String[] args) 
 	{
 		Utility utility=new Utility();
-		System.out.println(">> Enter any Decimal Number");
-		int ldecimal=Utility.inputInteger();
-		String binary=Utility.toBinary(ldecimal);
-		System.out.println(binary);
-	
+		System.out.println(">> Enter Any String : ");
+		String string=Utility.inputString();
+		int n = string.length();
+	    Utility.permutation(string, 0, n-1);
 	}
 }

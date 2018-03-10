@@ -1,13 +1,14 @@
-package com.bridgelabzs.FunctionalPrograms;
-/**
+
+/***********************************************************************************************
 *  Purpose: It is used to print Harmonic Numbers.
+
 *
 *  @author  Supriya kumawat
 *  @version 1.0
 *  @since   01-03-2018
 *
-**/
-
+***************************************************************************************************/
+package com.bridgelabzs.FunctionalPrograms;
 import java.util.Scanner;
 
 public class Harmonic 

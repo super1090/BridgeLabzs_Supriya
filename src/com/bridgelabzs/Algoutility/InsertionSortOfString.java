@@ -1,5 +1,13 @@
-package com.bridgelabzs.Algoutility;
+/*********************************************************************************
+*  Purpose: It is used to sort the array By using Insertion Sort
 
+*
+*  @author  Supriya kumawat
+*  @version 1.0
+*  @since   10-03-2018
+*
+*******************************************************************************/
+package com.bridgelabzs.Algoutility;
 import java.util.Scanner;
 import com.bridgelabzs.Utility.Utility;
 
@@ -7,9 +15,9 @@ public class InsertionSortOfString
 {
 	public static void main(String[] args) 
 	{
-		Scanner scanner=new Scanner(System.in);
+		Utility utility=new Utility();
 		System.out.println(">> Enetr any Size of String Array : ");
-		int lsize=scanner.nextInt();
+		int lsize=Utility.inputInteger();
 		String s[]=new String[lsize];
 		
 		System.out.println(">> Enter elements for a String");
@@ -17,7 +25,7 @@ public class InsertionSortOfString
 		// It is used to enter a element in array by using for loop
 		for(int i=0;i<s.length;i++)
 		{
-			s[i]=scanner.nextLine();
+			s[i]=Utility.inputString();
 		}
 		
 		System.out.println(">> Given String is : ");

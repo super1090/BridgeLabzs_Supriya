@@ -1,8 +1,3 @@
-package com.bridgelabzs.Algoutility;
-
-import java.util.Scanner;
-
-import com.bridgelabzs.Utility.Utility;
 /*********************************************************************************
 *  Purpose: It is used to Find the Number in Your Mind game
 *
@@ -11,13 +6,19 @@ import com.bridgelabzs.Utility.Utility;
 *  @since   09-03-2018
 *
 *******************************************************************************/
+package com.bridgelabzs.Algoutility;
+
+import java.util.Scanner;
+
+import com.bridgelabzs.Utility.Utility;
+
 public class QuestinFindNumber 
 {
 	public static void main(String[] args) 
 	{
-		Scanner scanner=new Scanner(System.in);
+		Utility utility=new Utility();	
 		System.out.println(">> $$$ Choice any number in your Mind $$ << ");
-		int number=scanner.nextInt();
+		int number=Utility.inputInteger();
 		Utility.imaginenumber(number);
 		
 	}
